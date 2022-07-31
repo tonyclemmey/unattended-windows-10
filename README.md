@@ -46,7 +46,7 @@ WinRM authentication  | configure.ps1    | Basic
 ## Usage
 
 ```bash
-packer build windows-10.json
+packer build windows-10.pkr.hcl
 ```
 
 You should add a packer provider to windows-10.json to set a secure password for Administrator.
