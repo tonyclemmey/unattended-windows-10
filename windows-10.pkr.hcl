@@ -18,6 +18,7 @@ source "qemu" "windows-10" {
   vm_name           = "windows-10"
   winrm_password    = "packer"
   winrm_username    = "Administrator"
+  winrm_port        = 5985
   qemuargs          = [ 
     ["-display", "none"]
   ]
