@@ -2,7 +2,7 @@
 source "qemu" "windows-10" {
   accelerator       = "kvm"
   communicator      = "winrm"
-  cpus              = 4
+  cpus              = 2
   disable_vnc       = true
   disk_interface    = "virtio"
   disk_size         = 50000
@@ -10,7 +10,7 @@ source "qemu" "windows-10" {
   format            = "qcow2"
   iso_checksum      = "md5:059eabb2dc0886515808e98910e49d13"
   iso_url           = "https://software-download.microsoft.com/download/sg/19043.928.210409-1212.21h1_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
-  memory            = "8192"
+  memory            = "4096"
   net_device        = "virtio-net"
   output_directory  = "windows-10"
   shutdown_command  = "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\""
@@ -18,6 +18,9 @@ source "qemu" "windows-10" {
   vm_name           = "windows-10"
   winrm_password    = "packer"
   winrm_username    = "Administrator"
+  qemuargs          = [ 
+    ["-display", "none"]
+  ]
 }
 
 build {
